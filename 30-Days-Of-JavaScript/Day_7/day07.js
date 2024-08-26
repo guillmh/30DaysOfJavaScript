@@ -82,4 +82,142 @@ if(age >= 20){
     return 'No tiene la edad sufuciente'
 }
 }
-console.log(imcClculate(23,60,1.72))
+console.log(imcClculate(23,60,1.72));
+//14.-Escribe una función llamada checkSeason, toma un parámetro de mes y retorna la estación: Otoño, Invierno, Primavera o Verano.
+const checkSeason = (month) => {
+let uperMonth = month.toLowerCase();
+switch(uperMonth) {
+    case 'enero':
+    return `Mes actual: ${month} Estacion: Invierno`;
+    case 'febrero':
+    return `Mes actual: ${month} Estacion: Invierno`;
+    case 'marzo':
+    return `Mes actual: ${month} Estacion: Primavera`;
+    case 'abril':
+    return `Mes actual: ${month} Estacion: Primavera`;
+    case 'mayo':
+    return `Mes actual: ${month} Estacion: Primavera`;
+    case 'junio':
+    return `Mes actual: ${month} Estacion: Verano`;
+    case 'julio':
+    return `Mes actual: ${month} Estacion: Verano`;
+    case 'agosto':
+    return `Mes actual: ${month} Estacion: Verano`;
+    case 'septiembre':
+    return `Mes actual: ${month} Estacion: Otoño`;
+    case 'octubre':
+    return `Mes actual: ${month} Estacion: Otoño`;
+    case 'noviembre':
+    return `Mes actual: ${month} Estacion: Otoño`;
+    case 'diciembre':
+    return `Mes actual: ${month} Estacion: Invierno`;
+    default:
+        return `${month} no es un mes valido`
+}
+}
+console.log(checkSeason('Noviembre'))
+//15.-Math.max retorna su argumento más grande. Escriba una función findMax que tome tres argumentos y devuelva su máximo sin usar el método Math.max.
+const findMax = (num1,num2,num3) => {
+ //Necesitamos convertir los numeros en un array
+let arr = `${num1} ${num2} ${num3}`.split(' ');
+//Necesitamos ordenar los elemntos de l array de menor a mayor
+let ordeArr = arr.sort((a,b) => a - b)
+//Obtenemos el ultimo elemento del array atraves de su indice
+let lastNumber = ordeArr[ordeArr.length - 1];
+//Retornamos el ultimo numero 
+return `El numero maximo es: ${lastNumber}`
+}
+console.log(findMax(13,16,1))
+//Ejercicios: Nivel 2
+//1.-La ecuación lineal se calcula de la siguiente manera: ax + by + c = 0. Escribe una función que calcule el valor de una ecuación lineal, solveLinEquation.
+function calcularEcuacionLineal(m, b, x) {
+    return m * x + b;
+}
+console.log(calcularEcuacionLineal(12,23,56))
+//2.-La ecuación cuadrática se calcula de la siguiente manera: ax2 + bx + c = 0. Escribe una función que calcule el valor o los valores de una ecuación cuadrática, solveQuadEquation.
+const solveQuadEquation = (a,b,c,) =>{
+    // Calcula el discriminante
+    let discriminante = b * b - 4 * a * c;
+
+    // Verifica el tipo de soluciones basadas en el discriminante
+    if (discriminante > 0) {
+        // Dos soluciones reales y diferentes
+        let raiz1 = (-b + Math.sqrt(discriminante)) / (2 * a);
+        let raiz2 = (-b - Math.sqrt(discriminante)) / (2 * a);
+        return [raiz1, raiz2];
+    } else if (discriminante === 0) {
+        // Una solución real
+        let raiz = -b / (2 * a);
+        return [raiz];
+    } else {
+        // No hay soluciones reales (solo imaginarias)
+        return [];
+    }
+}
+console.log(solveQuadEquation());
+console.log(solveQuadEquation(1, 4, 4));
+console.log(solveQuadEquation(1, -1, -2));
+console.log(solveQuadEquation(1, 7, 12));
+console.log(solveQuadEquation(1, 0, -4));
+console.log(solveQuadEquation(1, 0, -4));
+console.log(solveQuadEquation(1, -1, 0));
+//3.-Declare una función llamada printArray. Toma un array como parámetro e imprime cada valor del array.
+function printArray(array) {
+    for (let i = 0; i < array.length; i++) {
+        console.log(array[i]);
+    }
+}
+let numberArr = [3,5,3,4,5,8]
+printArray(numberArr)
+//4.-Declare una función llamada showDateTime que muestre la hora en este formato: 01/08/2020 04:08 usando el objeto Date.
+
+//Obtener el formato de hora para ver si es AM o PM;
+const formatHr = () => {
+ //Se obtienen tanto los minutos como las horas
+ const newDt = new Date();
+ let hr = newDt.getHours();
+ let mn = newDt.getMinutes();
+// Convertir la hora de 24 horas a formato de 12 horas
+ let hours12 = hr % 12;
+ hours12 = hours12 === 0 ? 12 : hours12; // Ajustar para mostrar 12 en lugar de 0
+// Formatear con dos dígitos las horas y los minutos
+ let completeHr = hours12.toString().padStart(2, '0');
+ let completeMinutes = mn.toString().padStart(2, '0');
+return `${completeHr}:${completeMinutes}`
+}
+
+const showDateTime = () => {
+    const fh = new Date();
+    let newDay = fh.getDate().toString().padStart(2, '0');
+    let newMonth = (fh.getMonth() + 1).toString().padStart(2, '0');
+    let newYear = fh.getFullYear();
+    let fullFech = `${newDay}/${newMonth}/${newYear} ${formatHr()}`
+    return console.log(fullFech)
+}
+showDateTime()
+
+//5.-Declare una función llamada swapValues. Esta función intercambia el valor de x a y.
+const swapValues = (x,y) => {
+ //almecenamos el valor de x temporalmente para que no se pierda   
+let newx = x;
+//ahora reasignamos el valor de x con el valor de y
+x = y;
+//pasamos el valor de x gurdado en la otra variable 
+y = newx;
+//me retorna ambos parametros
+return console.log(x,y)
+}
+swapValues(12,18);
+
+//6.-Declare una función llamada reverseArray. Toma un array como parámetro y retorna el array invertido (no use el método reverse()).
+const reverseArray = (arr) => {
+    let arrReverse = [];
+for(let i = arr.length -1; i >= 0; i--){
+  arrReverse.push(arr[i])
+}
+return console.log(arrReverse)
+}
+
+reverseArray(numberArr)
+
+//Explicar codigo anteior antes de continuar
