@@ -210,14 +210,63 @@ return console.log(x,y)
 swapValues(12,18);
 
 //6.-Declare una función llamada reverseArray. Toma un array como parámetro y retorna el array invertido (no use el método reverse()).
+//Se crea una funcion que recibira como parametro un array
 const reverseArray = (arr) => {
+//Creamos una funcion la cual tendra inicialmente un array vacio, para posteriormente guardar el array invertido
     let arrReverse = [];
+//creamos un bucle, el cual va a recorrer el array recibido en el parametro 'arr', incialmente i valdra la longuitud del array, ahora si i es mayor o igual a cero ve decrementando el valor de i
 for(let i = arr.length -1; i >= 0; i--){
+    //ahora iremos agregando cada elemento de mayor a menor en el array vacio
   arrReverse.push(arr[i])
 }
+//Retornamos en consola el nuevop array invertido
 return console.log(arrReverse)
 }
-
+//llamamos a la funcion
+const abc = ['A','B','C'];
+reverseArray(abc)
 reverseArray(numberArr)
+//7.-Declare una función llamada capitalizeArray. Toma un array como parámetro y retorna el array - capitalizeda
+const capitalizeArray = (capiArr) => {
+    let capitalizeOfArr = [];
+    for(const addAb of capiArr){
+        let firstLetters = addAb.charAt(0).toUpperCase() + addAb.slice(1);
+      capitalizeOfArr.push(firstLetters)
+    }
+    return capitalizeOfArr;
+}
 
-//Explicar codigo anteior antes de continuar
+let fruit = ['mango','uva','Pera','sandia','papaya'];
+console.log(capitalizeArray(fruit))
+//8.-Declare una función llamada addItem. Toma un elemento de paŕametro y retorna un array después de agregar el un elemento.
+const addItem = (game) =>{
+    let gameArr = game.split();
+    return gameArr;
+}
+console.log(addItem('Cars'));
+//9.-Declare una función llamada removeItem. Toma como parámetro un index y retorna un array después de eleminar el elemento con ese index.
+const removeItem = (indexToRemove) =>{
+const vegetables = ['Rabano','Lechuga','Zanaoria','papa'];
+if(indexToRemove > 3 || indexToRemove < 0){
+    console.log(`${indexToRemove} no esta dentro del rango de elementos escoga un numero del 0 al 3`)
+}else{
+    let before = vegetables.slice(0, indexToRemove);
+    let after = vegetables.slice(indexToRemove + 1);
+    let newVegetables = before.concat(after);
+    console.log(`Se elimino ${vegetables[indexToRemove]}`)
+return newVegetables;
+}
+}
+console.log(removeItem(0))
+//Eplicar
+//10.-Declare una función llamada sumOfNumbers. Toma un número como parámetro y suma todos los números en ese rango.
+const sumOfNumbers = (numMax) => {
+    let sumTotal = 0;
+    for(let i = 1; i <= numMax; i++){
+      sumTotal += i
+    }
+    return sumTotal;
+}
+console.log(sumOfNumbers(100))
+
+//solo comenta los dos codigos anteriores
