@@ -245,28 +245,105 @@ const addItem = (game) =>{
 }
 console.log(addItem('Cars'));
 //9.-Declare una función llamada removeItem. Toma como parámetro un index y retorna un array después de eleminar el elemento con ese index.
+
+//Creamos una funcion que recibe un numero como parametro el cual sera el index a remover
 const removeItem = (indexToRemove) =>{
+//creamos un array con elementos el cual nos servira para quitar elementos
 const vegetables = ['Rabano','Lechuga','Zanaoria','papa'];
+//creamos una condicional para que el usuario no puede ir mas aya del numero de elementos que existen en el array, y la funcion sea mas estricta
 if(indexToRemove > 3 || indexToRemove < 0){
+    //en caso de que se cumpla imprimimos en consola un mensaje 
     console.log(`${indexToRemove} no esta dentro del rango de elementos escoga un numero del 0 al 3`)
 }else{
+    //si no se cumple continuamos con la logica, creamos una variable 'before' la cual cortara el array en una primera parte con el metodo slice, desde el indice 0 hasta el indice que deseamo cortar
     let before = vegetables.slice(0, indexToRemove);
+    //definimos una varibale  'after', en esta cortaremos la otra parte despues del indice que deseamos cortar.
     let after = vegetables.slice(indexToRemove + 1);
+    //ahora unimos los dos arrays con la funcion concat
     let newVegetables = before.concat(after);
+    //se imprime en consola el elemento que se quito
     console.log(`Se elimino ${vegetables[indexToRemove]}`)
+    //retornamos el array compuesto por las partes antes cortadas
 return newVegetables;
 }
 }
+//llamamos a la funcion y le indicamos el indice a cortar
 console.log(removeItem(0))
-//Eplicar
+
 //10.-Declare una función llamada sumOfNumbers. Toma un número como parámetro y suma todos los números en ese rango.
+//Declaramos una funcion la cual recibira un numero
 const sumOfNumbers = (numMax) => {
+    //declaramos una variable la cual se inicia en 0 para posteriromente los numero se vayan sumando en esa varibale.
     let sumTotal = 0;
+    //Creamos un bucle, el cual va a iterar desde 1 hasta el rango que tenga la variable numMax,
     for(let i = 1; i <= numMax; i++){
+        //abrebiamos la suma y la igualdad, asi por cada numero qye vaya iterando se ira sumando y agregando a la variablex 'sumTotal';
       sumTotal += i
     }
+    //retornamos la suma total
     return sumTotal;
 }
+//se imprime en consola la funcion y se le pasa algun numero
 console.log(sumOfNumbers(100))
+//11.-Declare una función llamada sumOfOdds. Toma un parámetro numérico y suma todos los números impares en ese rango.
+//Creamos una varibale la cual recibe un numero como parametro
+const sumOfOdds = (perrs) => {
+    //Creamos una varibale en la caul se sumaran los numero impares
+let numPerrs = 0;
+//Creamos un bucle para iterar sobre el rango de numero de perrs
+for(let i = 1; i <= perrs; i++){
+    //declaramos una condicional en la cual si el numero de 'i' divido damo residuo 2 no es igual a 0 que lo agregue y sume a la variable perrs
+    if(i % 2 !== 0){
+        numPerrs += i;
+    }
+}
+//retornamos la varibale perrs
+return numPerrs;
+}
+console.log(sumOfOdds(50))
+//12.-Declare una función llamada sumOfEven. Toma un parámetro numérico y suma todos los números pares en ese rango.
+const sumOfEven = (par) => {
+let sumPar = 0;
+for(let i = 0; i <= par; i++){
+if(i % 2 === 0){
+  sumPar += i;
+}
+}
+return sumPar;
+}
+console.log(sumOfEven(10));
+//13.-Declare una función llamada evensAndOdds . Toma un entero positivo como parámetro y cuenta el número de pares e impares.
+//Creamos un funcion la cual recibe un numero entero positivo
+const evensAndOdds = (numOfPos) => {
+    //Creamos una condicional la cual nos pemite verificar si el numero es positovo en caso de que nos lo indicara en consola
+    if(numOfPos < 0){
+        console.log('Tu numero no es valido')
+        return;
+        }
+ //declaramos dos variables en las cuales nos funcionaran como contadores de los numero impares e impares
+        let par = 0;
+        let imp = 0;
+        //Creamos un bucle el va a iterar sobre el rango de numero de numOfPos
+        for (let i = 0; i <= numOfPos; i++) {
+            //Creamos una condicional el cual va a comprobar si el numero de i es par, si es par ira suamndo uno en la variable par, en caso de que no eso significa que no es par es impar entonces suma uno en la variable imp, asi susesivamente hasta contar todos.
+            if (i % 2 === 0) {
+                par++;
+            } else {
+                imp++;
+            }
+}
+//por ultimo retornamos una concatenacion donde se indica el numero de impares y pares
+return `Numero pares: ${par} Numeros Impares: ${imp}`;
+}
+console.log(evensAndOdds(200));
+//14.-Escriba una función que tome cualquier número de argumentos y retorne la suma de los argumentos
+const infiniteNum = (...arg) => {
+let sum = 0;
+for(const element of arg){
+  sum += element;
+}
+return sum;
+}
+console.log(infiniteNum(10,20,30,40,50));
 
-//solo comenta los dos codigos anteriores
+//Comentar el codigo anterior antes de continuar
