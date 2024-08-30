@@ -337,13 +337,56 @@ return `Numero pares: ${par} Numeros Impares: ${imp}`;
 }
 console.log(evensAndOdds(200));
 //14.-Escriba una función que tome cualquier número de argumentos y retorne la suma de los argumentos
+//Creamos una funcion la cual recibira parametros infinitos seguido de tres puntos y un nombre de parametro cualquiera.
 const infiniteNum = (...arg) => {
+//declaramos una varible donde se iran almacenando los numero sumados 
 let sum = 0;
+//Creamos un bucle que ira iterando elemento por elemento, y cada uno lo ira sumando
 for(const element of arg){
   sum += element;
 }
+//me retorna el total de argumentento sumados
 return sum;
 }
+//Imprimimos en consola la funcion y le pasamos cualquier cantidad de parametros 
 console.log(infiniteNum(10,20,30,40,50));
-
-//Comentar el codigo anterior antes de continuar
+//15.-Escriba una función randomUserIp que genere una ip de usuario aleatoria.
+const randomUserIp = () => {
+    let newIp = [];
+    for(let i = 0; i <= 4; i++){
+     newIp.push(Math.floor(Math.random() * 255));
+    }
+    return console.log(`${newIp[0]}.${newIp[1]}.${newIp[2]}.${newIp[3]}`)
+}
+randomUserIp()
+//16.-Escriba una función randomMacAddress que genere una dirección mac aleatoria.
+const randomMacAddress = () => {
+let macAdress = '';
+let hexa = 'ABCDEF';
+for(let i = 0; i < 12; i++){
+let numberCont = Math.floor(Math.random() * 10);  // Genera un número del 0 al 9
+let letter = hexa[Math.floor(Math.random() * hexa.length)];  // Selecciona una letra al azar de 'ABCDEF'
+ // Alterna entre número y letra para formar la dirección MAC
+macAdress += (i % 2 === 0) ? numberCont : letter;
+// Agrega ':' después de cada par de caracteres, excepto al final
+if (i % 2 === 1 && i < 11) {
+    macAdress += ':';
+  }
+}
+return macAdress
+}
+console.log(randomMacAddress());
+//17.-Declare una función llamada randomHexaNumberGenerator. Cuando se llama a esta función, genera un número hexadecimal aleatorio. La función retorna el número hexadecimal.
+// console.log(randomHexaNumberGenerator());
+// '#ee33df'
+const randomHexaNumberGenerator = () => {
+ let exadecimal = '0123456789abcdef';
+ let numberExadecimal = '';
+ for(let i = 0; i <= 5; i++){
+    let randomExa = Math.floor(Math.random() * exadecimal.length);
+    numberExadecimal += exadecimal[randomExa]
+ }
+ return `#${numberExadecimal}`
+}
+console.log(randomHexaNumberGenerator())
+//Documenta el ejericio anterior
