@@ -379,14 +379,49 @@ console.log(randomMacAddress());
 //17.-Declare una función llamada randomHexaNumberGenerator. Cuando se llama a esta función, genera un número hexadecimal aleatorio. La función retorna el número hexadecimal.
 // console.log(randomHexaNumberGenerator());
 // '#ee33df'
+
+//Creamos una funcion la cual no reibe ningun parametro, esta tendra el proposito de genarar un numero jexadecimal random
 const randomHexaNumberGenerator = () => {
+    //Colocamos en una variable el rango 1 a 16 bits 
  let exadecimal = '0123456789abcdef';
+ //Colocamos otra variable donde se guardara el numero hexadecimal
  let numberExadecimal = '';
+ //creamos un bucle el un recorrido 6 veces que es la cantidad de elemtnos de un numero hexadecimal
  for(let i = 0; i <= 5; i++){
+    //Creamos una varibale la cual gnerara un numero aleatorio del un rango de la longuitud de la variable 'Exadecimal'
     let randomExa = Math.floor(Math.random() * exadecimal.length);
+    //Gurdamos ese numero en cada iteraciohn y le vamos agregando el siguiente y asi sucesivamente, accedemos mediante el numero que nos genere randomExa.
     numberExadecimal += exadecimal[randomExa]
  }
+ //Retornamos la variable ya contodos los numeros y le agregamos el signo gato
  return `#${numberExadecimal}`
-}
+}//Imprimimos la funcion
 console.log(randomHexaNumberGenerator())
-//Documenta el ejericio anterior
+//18.-Declare una función llamada userIdGenerator. Cuando se llama a esta función, genera un id de siete caracteres. La función devuelve el id. 41XTDbE
+const userIdGenerator = () => {
+let elements = 'abcdefghiklmnopqrstuvwxyz0123456789';
+let id = '';
+for(let i = 0; i <= 6; i++ ){
+    let randomElement = Math.floor(Math.random() * elements.length);
+   id += elements[randomElement]
+}
+return `id:${id.toUpperCase()}`
+}
+console.log(userIdGenerator());
+//Ejercicios: Nivel 3
+// Modifique la función userIdGenerator. Declare una función de nombre userIdGeneratedByUser. No toma ningún parámetro pero toma dos entradas usando prompt(). Una de las entradas es la cantidad de caracteres y la segunda entrada es la cantidad de ID que se supone que se generarán.
+const userIdGeneratedByUser = () => {
+let range = +prompt('Cuantos ID quieres:');
+let characterNumber = +prompt('Ingresa la longuitud de tu id:');
+let elements = 'abcdefghiklmnopqrstuvwxyz0123456789';
+for(let j = 0; j < range; j++){ 
+let userId = '';
+for(let i = 0; i < characterNumber; i++){
+    let randomElement = Math.floor(Math.random() * elements.length);
+    userId += elements[randomElement];  
+}
+console.log(userId.toUpperCase())
+}
+}
+userIdGeneratedByUser()
+//Comentar ejericcio anterior
