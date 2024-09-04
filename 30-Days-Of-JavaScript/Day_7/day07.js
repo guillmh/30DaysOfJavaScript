@@ -409,19 +409,73 @@ return `id:${id.toUpperCase()}`
 }
 console.log(userIdGenerator());
 //Ejercicios: Nivel 3
-// Modifique la función userIdGenerator. Declare una función de nombre userIdGeneratedByUser. No toma ningún parámetro pero toma dos entradas usando prompt(). Una de las entradas es la cantidad de caracteres y la segunda entrada es la cantidad de ID que se supone que se generarán.
+// 1.-Modifique la función userIdGenerator. Declare una función de nombre userIdGeneratedByUser. No toma ningún parámetro pero toma dos entradas usando prompt(). Una de las entradas es la cantidad de caracteres y la segunda entrada es la cantidad de ID que se supone que se generarán.
+
+//Creamos una funcion la cual genara cierta cantidad de id con cierta longuitud, estos numero seran espeficicados por el usuario
 const userIdGeneratedByUser = () => {
+//Creemos una entrada para pedirle la cantidad de id al usuario, agregamos el simbolo + para converitir la entra a number
 let range = +prompt('Cuantos ID quieres:');
+//Le pedimos al usuario la longuitud del ID
 let characterNumber = +prompt('Ingresa la longuitud de tu id:');
+//Cremos una variable la cual contiene letras y numeros para genarar un id aleatorio
 let elements = 'abcdefghiklmnopqrstuvwxyz0123456789';
+//creamos un bucle el cual el cual generara la cantidad de id
 for(let j = 0; j < range; j++){ 
+//Creamos una variable vacia, aca se guardara el id generado
 let userId = '';
+//anidamos otro bucle, este tendra el propisto de generar el id aleatorio
 for(let i = 0; i < characterNumber; i++){
     let randomElement = Math.floor(Math.random() * elements.length);
     userId += elements[randomElement];  
 }
+//Se manda a llamar el id genrado y se convierte a mayuscula
 console.log(userId.toUpperCase())
 }
 }
-userIdGeneratedByUser()
-//Comentar ejericcio anterior
+//2.-Escriba una función llamada rgbColorGenerator que genera colores rgb rgbColorGenerator() rgb(125,244,255)
+const rgbColorGenerator = () => {
+const rgbNumbers = [];
+for(let i = 0; i < 3; i++){
+    let aleatori = Math.floor(Math.random() * 256);
+    rgbNumbers.push(aleatori)
+}
+return `rgb(${rgbNumbers[0]},${rgbNumbers[1]},${rgbNumbers[2]})`
+}
+console.log(rgbColorGenerator());
+//3.-Escriba una función arrayOfHexaColors que retorna cualquier cantidad de colores hexadecimales en un array.
+const arrayOfHexaColors = () => {
+    const arrayExa = [];
+    let exadecimal = '0123456789abcdef';
+    for(let i = 0; i < 5; i++){
+        let exaAleatori = '';
+     for(let j = 0; j < 6; j++){
+        let rangeGenerator = Math.floor(Math.random() * exadecimal.length);
+        exaAleatori += exadecimal[rangeGenerator]
+     }
+     arrayExa.push('#' + exaAleatori.toUpperCase())
+    }
+    return arrayExa;
+}
+console.log(arrayOfHexaColors());
+//4.-Escriba una función arrayOfRgbColors que retorna cualquier cantidad de colores RGB en un array.
+const arrayOfRgbColors = (range) => {
+    let arrayRgb = [];
+    for(let i = 0; i < range; i++){
+        arrayRgb.push(rgbColorGenerator())
+    }
+    return arrayRgb;
+}
+console.log(arrayOfRgbColors(4));
+//5.-Escriba una función convertHexaToRgb que convierta el color hexa a rgb y retorna un color rgb.
+const convertHexaToRgb = () => {
+    let exadecimal = randomHexaNumberGenerator();
+    let r = exadecimal.substring(1,3);
+    let g = exadecimal.substring(3,5);
+    let b = exadecimal.substring(5,7);
+    let rExa = parseInt(r, 16);
+    let gExa = parseInt(g, 16);
+    let bExa = parseInt(b, 16);
+    return `rgb(${rExa},${gExa},${bExa})`;
+}
+coCnsole.log(convertHexaToRgb());
+//Comenta los dos cogigfos de arriba
