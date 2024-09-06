@@ -458,24 +458,53 @@ const arrayOfHexaColors = () => {
 }
 console.log(arrayOfHexaColors());
 //4.-Escriba una función arrayOfRgbColors que retorna cualquier cantidad de colores RGB en un array.
+//creamos una funcion la cual recibe un parametro el cual sera la cantidad de color RGB en el array
 const arrayOfRgbColors = (range) => {
+    //creamos un array vacio donde se guardaran los colores
     let arrayRgb = [];
+    //Creamos un bucle el cual va a iterar sobre el rango que indique el parametro
     for(let i = 0; i < range; i++){
+        //Hacemos un push reutilizando una funcion anteiror que ya nos generaba colores rgb aleatorios
         arrayRgb.push(rgbColorGenerator())
     }
+    //retornamos el array
     return arrayRgb;
 }
+//Imprimimos en consola el arry y le pasamos un numero indicandole el rango
 console.log(arrayOfRgbColors(4));
 //5.-Escriba una función convertHexaToRgb que convierta el color hexa a rgb y retorna un color rgb.
+//Creamos una funcion que no recibe ningun parametro
 const convertHexaToRgb = () => {
+    //Guardamos en una variable una funcion anteior que nos crea numero hexadecimales
     let exadecimal = randomHexaNumberGenerator();
+    //cortamos en pares con 'substring' 
     let r = exadecimal.substring(1,3);
     let g = exadecimal.substring(3,5);
     let b = exadecimal.substring(5,7);
+    //Usamos parteInt pasandole como base 16 para que sean convertidos de manera correcta a RGB
     let rExa = parseInt(r, 16);
     let gExa = parseInt(g, 16);
     let bExa = parseInt(b, 16);
+    //Concate
     return `rgb(${rExa},${gExa},${bExa})`;
 }
-coCnsole.log(convertHexaToRgb());
-//Comenta los dos cogigfos de arriba
+//Mandamos a llamar a la funcion
+console.log(convertHexaToRgb());
+//6.-Escriba una función convertRgbToHexa que convierta rgb a color hexa y retorna un color hexa.
+const convertRgbToHexa = () => {
+    let hexa = rgbColorGenerator();
+    let cleanCode = hexa.replace(/[^\d,]/g, '');
+    let arrayRgb = cleanCode.split(',');
+
+    let r = arrayRgb[0];
+    let g = arrayRgb[1];
+    let b = arrayRgb[2];
+    let hexR = r.toString(16);
+    let hexG = g.toString(16);
+    let hexB = b.toString(16);
+//if(he)
+    
+}
+
+console.log(convertRgbToHexa())
+//Acompletar ejericcio aya tenemos los tres pares de numero a hora mediante un if necesitamos verificar acada par si cuntiene un solo digito concatenamos un 0 al prinpio, en caso de que no lo dejamos como esta, despues implemente formamos el numero #3bh456
