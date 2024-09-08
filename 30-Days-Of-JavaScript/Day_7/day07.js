@@ -492,19 +492,44 @@ const convertHexaToRgb = () => {
 console.log(convertHexaToRgb());
 //6.-Escriba una función convertRgbToHexa que convierta rgb a color hexa y retorna un color hexa.
 const convertRgbToHexa = () => {
+    //Guardamos en una variable la funcion que nos genera un color RGB
     let hexa = rgbColorGenerator();
+    //Limpiamos el string con expresiones regulares, solo conservaremos los numeros
     let cleanCode = hexa.replace(/[^\d,]/g, '');
+    //Los separamos en pares y nos los da en un array
     let arrayRgb = cleanCode.split(',');
-
-    let r = arrayRgb[0];
-    let g = arrayRgb[1];
-    let b = arrayRgb[2];
+    //Accedemmos a cada par y lo guardamos en una variable, debemos convertirlos en numeros ya que aun son string
+    let r = +arrayRgb[0];
+    let g = +arrayRgb[1];
+    let b = +arrayRgb[2];
+    //Convertimos con base 16
     let hexR = r.toString(16);
     let hexG = g.toString(16);
     let hexB = b.toString(16);
-//if(he)
-    
+    //Creamos una condicional en la que se indique que si solo hay un digito se agregue un 0 al principio y en caso de que no se deja como esta
+    if (hexR.length === 1) hexR = '0' + hexR;
+    if (hexG.length === 1) hexG = '0' + hexG;
+    if (hexB.length === 1) hexB = '0' + hexB;   
+    //Concatenamos con el formato hexadecimal 
+ return `#${hexR}${hexG}${hexB}`;
 }
+//LLmamos a la funcion
+console.log(convertRgbToHexa());
+//7.-Escriba una función generateColors que pueda generar cualquier número de colores hexa o rgb.
+const generateColors = (type, longNumber) => {
+const colors = [];
+if(type === 'hexa'){
+for(let i = 0; i < longNumber; i++){
+    colors.push(randomHexaNumberGenerator())
+}
+}
+if(type === 'rgb'){
+   for(let i = 0; i < longNumber; i++){
+    colors.push(rgbColorGenerator())
+   }
+}
+return colors;
+}
+console.log(generateColors('rgb', 3))
 
-console.log(convertRgbToHexa())
-//Acompletar ejericcio aya tenemos los tres pares de numero a hora mediante un if necesitamos verificar acada par si cuntiene un solo digito concatenamos un 0 al prinpio, en caso de que no lo dejamos como esta, despues implemente formamos el numero #3bh456
+//Porfavor de comentar el cod de arriba
