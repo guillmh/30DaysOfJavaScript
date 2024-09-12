@@ -516,20 +516,65 @@ const convertRgbToHexa = () => {
 //LLmamos a la funcion
 console.log(convertRgbToHexa());
 //7.-Escriba una función generateColors que pueda generar cualquier número de colores hexa o rgb.
+//Creamos una funcion que recibe dos parametros
 const generateColors = (type, longNumber) => {
+//Creamos un array vacio que guaradara los numeros
 const colors = [];
+//Declaramos una condicion donde si el primer parametro es igual a 'hexa' pasa a iterar 
 if(type === 'hexa'){
+    //itera sobre el numero que es el segundo parametro 
 for(let i = 0; i < longNumber; i++){
+    //empuja la funcion que crea numero hexadecimales
     colors.push(randomHexaNumberGenerator())
 }
 }
+//Declaramos una condicion donde si el primer parametro es igual a 'rgb' pasa al bucle
 if(type === 'rgb'){
+    //itera sobre el numero del segundo parametro 
    for(let i = 0; i < longNumber; i++){
+    //agrega la funcion que genera colores RGB
     colors.push(rgbColorGenerator())
    }
 }
+//Retorna el array con los nuevos datos
 return colors;
 }
-console.log(generateColors('rgb', 3))
-
-//Porfavor de comentar el cod de arriba
+//Imprimo la funcion y le paso los paramtros correctos 
+console.log(generateColors('hexa', 1))
+//8.-Llame a su función shuffleArray, toma un array como parámetro y devuelve un array mezclada
+//Creamos una funcion que recibe un parametro
+const shuffleArray = (arrSort) => {
+//retorna el array ordenado por sort de manera aleatoria
+return  arrSort.sort(() => Math.random() - 0.5);
+}
+ const consoles = ['PS4','XBOX','SWITCH','STEAMDECK'];
+ //imprimimos el resultado
+ console.log(shuffleArray(consoles))
+ //9.-Llame a su función factorial, toma un número entero como parámetro y devuelve un factorial del número.
+ // Función para calcular el factorial de un número
+function factorial(n) {
+    // Si el número es 0, el factorial es 1 por definición
+    if (n === 0) {
+      return 1;
+    }
+    // Variable para almacenar el resultado del factorial, empezamos en 1
+    let result = 1;
+    // Bucle para multiplicar desde 1 hasta n
+    for (let i = 1; i <= n; i++) {
+      result *= i; // Multiplicamos el resultado por el valor actual de i
+    }
+    // Devolvemos el resultado final
+    return result;
+  }
+  // Ejemplo: calcular el factorial de 5
+  console.log(factorial(3)); // Imprime 120
+  //10.-Llame a su función isEmpty, toma un parámetro y verifica si está vacío o no.
+  const isEmpty = (character) => {
+      if(character == null || character == undefined || character.length == 0 || character == false){  
+    console.log('Esta vacio')
+      }else{
+        console.log(`${character} no esta vacio`)
+      }
+  }
+  isEmpty('')
+  //Comentra codigo
