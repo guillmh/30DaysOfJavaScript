@@ -569,12 +569,31 @@ function factorial(n) {
   // Ejemplo: calcular el factorial de 5
   console.log(factorial(3)); // Imprime 120
   //10.-Llame a su función isEmpty, toma un parámetro y verifica si está vacío o no.
+  //Esta funcion recibe un parametro 
   const isEmpty = (character) => {
+//Creamos una condicion la cual verifica si 'Character' esta vacio, o si el valor es indefinido o nulo
       if(character == null || character == undefined || character.length == 0 || character == false){  
+        //En caso de que se cumpla cualquiera de las condiciones, muestra en consola 'Esdta vacio'
     console.log('Esta vacio')
       }else{
+        //Y si el parametro contiene algun dato muestra el vbalor y el mensaje 'No esta vacio'
         console.log(`${character} no esta vacio`)
       }
   }
+  //Se llama la funcion
   isEmpty('')
-  //Comentra codigo
+ //11.-Llame a su función sum, toma cualquier cantidad de argumentos y devuelve la suma.
+ //Creamos una funcion la cual recibe cualquier cantidad de parametros, colo camos el operador de propagacion ...arg
+ const sum = (...arg) => {
+    //Creamos una varibale la en la cual se iran sumando los numeros
+  let sumTotal = 0;
+  //Como el parametro en automatico se convierte en un array, iteramos con un bucle sobre la longuitud del array con lenght
+  for(let i = 0; i < arg.length; i++){
+    //sumamos y agregamos el valor de cada elemento dle array accediendo a su index con [i]
+    sumTotal += arg[i];
+  }
+  //retornamos la suma total
+  return sumTotal;
+ }
+ //LLamamos a la funcion y le colocamos n cantidad de argumentos
+ console.log(sum(100,304,13,24));
