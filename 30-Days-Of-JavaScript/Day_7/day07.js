@@ -597,3 +597,110 @@ function factorial(n) {
  }
  //LLamamos a la funcion y le colocamos n cantidad de argumentos
  console.log(sum(100,304,13,24));
+ //12.-Escriba una función llamada sumOfArrayItems, toma un array como parámetro y retorna la suma de todos los elementos. Compruebe si todos los elementos de la matriz son tipos de números. Si no, dé una respuesta razonable.
+
+ //Creamos una funcion que recibe u array como parametro
+ const sumOfArrayItems = (arrayOfNumbers) => {
+    //Creamos una variable donde sumaremos los numeros del array
+    let sumTotal = 0;
+    //Iteramos sobre el array 
+    for(let i = 0; i < arrayOfNumbers.length; i++){
+        //Creamo una condicion donde: si cada elemento no es igual a un dato de tipo number 
+       if(typeof arrayOfNumbers[i] !== 'number'){
+        //Retornamos un error para evitar la ejecucion de la suma
+        return 'Error: Todos los elementos deben ser de tipo número.';
+       }else{
+        //En caso de que no se encuentre ningun otro dato que sea numero, realizamos la suma
+        sumTotal += arrayOfNumbers[i];
+       }
+    }
+    //Retornamos la suma total
+    return sumTotal;
+ }
+ const numbersTc = [1,2,3,4,5];
+ console.log(sumOfArrayItems(numbersTc));
+ //13.-Escribe una función llamada average, toma un array como parámetro y retorna el promedio de los elementos. Compruebe si todos los elementos de la matriz son tipos de números. Si no, dé una respuesta adecuada.
+ //Funcion que recibe un parametro
+ const average = (nums) =>{
+    //Variable para guaradr la suma de todos los numeros y de ahi sacar el promedio
+    let addedTotal = 0;
+   //Iteramos sobre el array
+    for(let i = 0; i < nums.length; ){
+        //Creamos un condicion donde si cada elemento del array no es de tipo number, me retorna un error em mensaje
+        if(typeof nums[i] !== 'number'){
+            return 'Error: Todos los elementos deben ser de tipo número.'
+        }else{
+            //en caso de ser falso me retorna el promedio, la suma total de los numeros del array divido entre el total de elementos del array, y solo tomamos dos numeros despues del punto con toFixed.
+        return ((addedTotal += nums[i]) / nums.length).toFixed(2);
+       }
+    }
+ }
+//Llamamos a la funcion y le pasamos el array
+console.log(average([32,45,56,12,23,33,45]));
+//14.-Escriba una función llamada modifyArray que tome un array como parámetro y modifique el quinto elemento del array y retorna el array. Si la longitud del array es inferior a cinco, retorna 'elemento no encontrado'.
+//creamos una funcion la cual recibe dos parametros
+const modifyArray = (arr, newNum) => {
+//creamos una condicion, si la longuitud del array es menor a 5, me retorna elemento no encontrado
+  if(arr.length < 5){
+    return 'Elemento no encontrado'
+  }else{
+    //en caso de de que no modificamos el elemento que se encuentre el la posisicion numero 5
+    arr[5] = newNum;
+  }
+  //Retornamos el array
+  return arr;
+}
+//Imprimimos en consola la funcion
+console.log(modifyArray(numbersTc, 9));
+//15.-Escribe una función llamada isPrime, que verifica si un número es un número primo.
+const isPrime = (numTr) => {
+    if (numTr < 2) {
+        return false; // Números menores que 2 no son primos
+    }
+
+    let root = Math.sqrt(numTr);
+    for (let i = 2; i <= root; i++) {
+        if (numTr % i === 0) {
+            return 'No es primo'; // Si se encuentra un divisor, no es primo
+        }
+    }
+
+    return `${numTr} es numero primo`; // Si no encuentra divisores, es primo
+}
+console.log(isPrime(11));
+//16.-Escriba una función que verifique si todos los elementos son únicos en un array.
+const verifyUnic = (arr) => {
+    for(let i = 0; i < arr.length; i++){
+        for(let j = i + 1; j < arr.length; j++){
+            if(arr[i] === arr[j]){
+                return 'Tu array contiene duplicados';
+            }
+        }
+    }
+    return arr;
+}
+console.log(verifyUnic([1,2,3,4,5,6,7,7,9]));
+//17.-Escriba una función que verifique si todos los elementos de un array son del mismo tipo de datos.
+const unicTypeData = (arr) => {
+ for(let i = 0; i < arr.length; i++){
+    for(let j = i + 1; j < arr.length; j++)
+ if(typeof arr[i] !== typeof arr[j]){
+    return 'Contiene Elementos diferentes';
+ } 
+ }
+ return 'Todos son elementos iguales';
+}
+console.log(unicTypeData([1,2,3,4,4,'3']));
+//18.-El nombre de las variables de JavaScript no admite caracteres o símbolos especiales, excepto $ o _. Escriba una función isValidVariable que verifique si una variable es válida o inválida.
+const verifyLet = (data) => {
+    const regex = /^[A-Za-z_$][A-Za-z0-9_$]*$/;
+    let named = regex.test(data);
+    if(named ===  true){
+        console.log(`${data} es valido`)
+    }else{
+        console.log(`${data} no es valido`)
+    }
+
+}
+verifyLet('name')
+//Docementar ultimos dos ejercicios apoyate de chay gpt, es imp=ortante que entiendas lon que se realizo
