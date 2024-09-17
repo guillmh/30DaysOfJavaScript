@@ -692,9 +692,13 @@ const unicTypeData = (arr) => {
 }
 console.log(unicTypeData([1,2,3,4,4,'3']));
 //18.-El nombre de las variables de JavaScript no admite caracteres o símbolos especiales, excepto $ o _. Escriba una función isValidVariable que verifique si una variable es válida o inválida.
+//Creamos una variable que recibe un parametro
 const verifyLet = (data) => {
+    //Creamos una variable la cual contiene una expresion regular inidicando la reglas que debe tener la variable
     const regex = /^[A-Za-z_$][A-Za-z0-9_$]*$/;
+    //Creamos otra variable la cual le indicaremos que si dat cumple con las reglas de 'regex', si lo cumple devulve true o false 
     let named = regex.test(data);
+    //Creamos una condicion si donde named es true me dira que es valido si no dira que no e svalido
     if(named ===  true){
         console.log(`${data} es valido`)
     }else{
@@ -702,5 +706,26 @@ const verifyLet = (data) => {
     }
 
 }
-verifyLet('name')
-//Docementar ultimos dos ejercicios apoyate de chay gpt, es imp=ortante que entiendas lon que se realizo
+verifyLet('name');
+//19.-Escriba una función que devuelva un array de siete números aleatorios en un rango de 0-9. Todos los números deben ser únicos.
+const arrayAleatori = () => {
+  const arr = [];
+  for(let i = 0; i < 7; i++){
+    let randomNumber;
+    do {
+        randomNumber = Math.floor(Math.random() * 10);
+      } while (arr.includes(randomNumber)); // Verifica si ya existe en el array
+    arr.push(randomNumber);
+  }
+  return arr;
+}
+console.log(arrayAleatori());
+//20.-Escriba una función llamada reverseCountries, toma el array de países y primero copia el array y retorna el array original invertido
+const reverseCountries = (arrayReverse) => {
+ const newArr = [];
+ for(let i = arr.lenght; i >= 0; i-- ){
+    newArr.push(arrayReverse[i])
+ }
+ return newArr;
+}
+reverseArray([1,2,3,4,5,6,7,8]);
