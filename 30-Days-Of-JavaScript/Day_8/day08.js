@@ -12,3 +12,11 @@ dog.bark = function (){
     return  'woof woof'
 };
 console.log(dog)
+//4.-Obtener name, legs, color, age y el valor de bark del objeto dog
+let dogChow = `${dog.name},${dog.legs},${dog.age},${dog.bark()}`;
+console.log(dogChow);
+//5,.-Establecer nuevas propiedades al objeto dog: breed, getDogInfo
+dog.breed = 'Pitbull';
+dog.getDogInfo = function(){
+    return `My dog is: ${this.name} the color is: ${this.color}`};
+console.log(dog);
