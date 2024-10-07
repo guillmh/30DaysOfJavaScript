@@ -73,15 +73,47 @@ const users = {
     }
   }
 //1.-Encuentra a la persona que tiene muchas habilidades en el objeto de los usuarios.
+//Declaramos dos variables, en una se guarda el numero mayor de skills y en el otro el nombre del usuario
 let maxSkills = 0;
 let nameUserSkills = '';
+//Creamos un bucle para acceder al los valores del objeto
 for(let user in users){
+  //accedemos a los valores de usuario espeficicamente las skills
   let userSkills = users[user].skills;
   // Contar cuántas habilidades tiene el usuario
   let numberOfSkills = userSkills.length;
+  //creamos una condicion donde se compara si numberofSkill es mayor  que masSkills guarda el mayor numero en la variable max skill
   if(numberOfSkills > maxSkills){
     maxSkills = numberOfSkills
     nameUserSkills = user;
   }
 }
-console.log(`${nameUserSkills} tiene mayores habilidades con un total${maxSkills}`)
+//Iteramos e imprimimos en consola tanto el usuario como su numero de skills
+console.log(`${nameUserSkills} tiene mayores habilidades con un total de ${maxSkills}`);
+//2.-Contar los usuarios conectados, contar los usuarios que tienen más o igual de 50 puntos del siguiente objeto.
+let usersConnected = 0;
+let usersPoints = [];
+for(let connected in users){
+let userConect = users[connected].isLoggedIn;
+if(userConect === true){
+  usersConnected += 1;
+}
+}
+for( let pointed in users){
+   let userPoint = users[pointed].points;
+   if(userPoint >= 50){
+  usersPoints.push(userPoint)
+ }
+}
+console.log(`Usuarios con 50 o mas puntos:${usersPoints.length} Cantidad de usuarios  conectados:${usersConnected}`)
+//3.-Encontrar personas que sean desarrolladores MERN(Mongo,express,react,node) stack del objeto de los usuarios
+let namefullUser = '';
+for(stack in users){
+  let mernSearch = ['MongoDB','Express','React','Node'];
+  let mernStack = users[stack].skills;
+  let fullStack = mernSearch.every(sta => mernStack.includes(sta));
+  if(fullStack){
+   console.log(`${stack} cumple con el stack MERN:${mernStack}`)
+  }
+}
+//explica el codigo
