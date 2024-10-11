@@ -249,7 +249,6 @@ const usersTag = [
     isLoggedIn: false,
   },
 ];
-
 const products = [
   {
     _id: "eedfcf",
@@ -279,11 +278,46 @@ const products = [
     likes: ["fg12cy"],
   },
 ];
+const dateActually = () => {
+  const fecha = new Date();
 
-const signUp = (newUser) =>{
-const copyList = Object.assign({}, usersTag);
-copyList.newUser = {
-  //vacio
+  const dia = ("0" + fecha.getDate()).slice(-2); // Asegura que tenga 2 dígitos
+  const mes = ("0" + (fecha.getMonth() + 1)).slice(-2); // Mes en 2 dígitos, sumando 1 al mes
+  const ano = fecha.getFullYear();
+  
+  let horas = fecha.getHours();
+  const minutos = ("0" + fecha.getMinutes()).slice(-2); // Minutos con 2 dígitos
+  const ampm = horas >= 12 ? "PM" : "AM"; // Determina si es AM o PM
+  
+  horas = horas % 12; // Convierte formato de 24h a 12h
+  horas = horas ? horas : 12; // Si la hora es 0 (medianoche), convierte a 12
+  horas = ("0" + horas).slice(-2); // Asegura que las horas tengan 2 dígitos
+  
+  const fechaFormateada = `${mes}/${dia}/${ano} ${horas}:${minutos} ${ampm}`;
+  return fechaFormateada;
 }
+const signUp = (newUser,userEmail,userPassword) =>{
+    // Comprobar si ya existe un usuario con el mismo email
+    const userExists = usersTag.find(user => user.email === userEmail);
+    if (userExists) {
+      console.log("Ya tengo cuenta");
+    } else {
+      let dateNewUser = {
+        _id: "f4gbn5",
+          username: `${newUser}`,
+          email: `${userEmail}`,
+          password: `${userPassword}`,
+          createdAt: `${dateActually()}`,
+          isLoggedIn: false,
+      }
+      usersTag.push(dateNewUser)
+      console.log("Usuario registrado con éxito");
+    }
 }
 console.log(usersTag)
+signUp('Guill','dbhsdb@gmail.com','f3482y')
+
+ const signIn = (mail,pass) => {
+  const userLoggin = usersTag.find(user => user.email === userEmail);
+ }
+ // completa la funcion sigin, debes poder iniciar sesion con tu contrasena y correo, y el estado de loggin debe cambiar a true
