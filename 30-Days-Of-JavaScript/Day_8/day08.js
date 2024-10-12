@@ -315,9 +315,37 @@ const signUp = (newUser,userEmail,userPassword) =>{
     }
 }
 console.log(usersTag)
-signUp('Guill','dbhsdb@gmail.com','f3482y')
+signUp('Guill','gg@gmail.com','f3482y')
 
- const signIn = (mail,pass) => {
-  const userLoggin = usersTag.find(user => user.email === userEmail);
+const signIn = (mail,pass) => {
+   // Buscar al usuario por email y contraseña
+   const user = usersTag.find(
+    user => user.email === mail && user.password === pass
+  );
+  if(user){
+    if (user.isLoggedIn) {
+      console.log(`El usuario ${user.username} ya está logueado.`);
+    } else {
+      user.isLoggedIn = true; // Cambiar el estado de 'isLoggedIn' a true
+      console.log(`Inicio de sesion exitoso,Bienvenido: ${user.username}`);
+    }
+  } else {
+    console.log("Correo o contraseña incorrectos.");
+  }
+
  }
- // completa la funcion sigin, debes poder iniciar sesion con tu contrasena y correo, y el estado de loggin debe cambiar a true
+signIn('asab@asab.com','123456');
+//3.-El array de productos tiene tres elementos y cada uno de ellos tiene seis propiedades. a. Crear una función llamada rateProduct que califique el producto b. Crear una función llamada averageRating que calcule la valoración media de un producto
+const rateProduct = ( userNmenameProd, ) => {
+//debemos poder usar esta funcion para agregar una calificacion a un producto
+//se debe de ver asi  { userId: "fg12cy", rate: 5 }, en la clave rating del producto, 
+//se debe agregar el id del usuario de los que ya tenemos en usersTag, en la funcion se tendra tres parametros, nombre del producto,nombre del usuario y la calificacion
+}
+
+
+
+
+
+
+
+//4.-Crear una función llamada likeProduct. Esta función ayuda a dar un like al producto. Si no le gusta eliminar el like y si le gusta darle like
