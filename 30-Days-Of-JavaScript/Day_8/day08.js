@@ -334,18 +334,49 @@ const signIn = (mail,pass) => {
   }
 
  }
-signIn('asab@asab.com','123456');
+signIn('gg@gmail.com','f3482y');
 //3.-El array de productos tiene tres elementos y cada uno de ellos tiene seis propiedades. a. Crear una función llamada rateProduct que califique el producto b. Crear una función llamada averageRating que calcule la valoración media de un producto
-const rateProduct = ( userNmenameProd, ) => {
-//debemos poder usar esta funcion para agregar una calificacion a un producto
-//se debe de ver asi  { userId: "fg12cy", rate: 5 }, en la clave rating del producto, 
-//se debe agregar el id del usuario de los que ya tenemos en usersTag, en la funcion se tendra tres parametros, nombre del producto,nombre del usuario y la calificacion
+//la Funcion recibe tres parametros, un producto existente, un usuario existente y un numero que es la calificacion
+const rateProduct = (nameProduct, nameUser, rateUser) => {
+  //Buscamos en el array un nombre que coincida con el parametro nameUser
+  const searchUser = usersTag.find(user => user.username === nameUser);
+  //Buscamos un producto que coincida con name product
+  const searchProduct = products.find(product => product.name === nameProduct);
+  //si se encuentra searchUser y searchProduct sigue el flujo
+  if(searchUser && searchProduct){
+    //capturamos el id del usuario, la variable debe tener alcanze solo dentro del if para que no marque error
+    const userId = searchUser._id;
+    //realizamos un push al producto encontrado
+      searchProduct.ratings.push({userId, rateUser});
+      //mostramos un mensaje en consola del usuario,producto y calificacion
+      console.log(`El usuario: ${nameUser} califico ${nameProduct} con ${rateUser}`);
+  }else{
+    //en caso de no encontrar el producto y el usuario mostramos un mensaje de error
+    console.log('No se encontro el producto o el nombre del usuario es incorrecto.');
+  }
 }
-
-
-
-
-
-
-
+//llamamos a la funcion y le pasamos los parametros
+rateProduct('TV','Guill',10);
 //4.-Crear una función llamada likeProduct. Esta función ayuda a dar un like al producto. Si no le gusta eliminar el like y si le gusta darle like
+const likeProduct = (nameUser,nameProduct) => {
+const findUser = usersTag.find(user => user.username === nameUser);
+const findProduct = products.find( product => product.name === nameProduct);
+const login = findUser.isLoggedIn;
+if(login === true){
+  if(findUser && findProduct){
+    const idUser = findUser._id;
+    findProduct.likes.push({UserID: idUser, like: 1});
+    console.log(`El usuario:${nameUser} ha dado Like`)
+  }else{
+    console.log('No se encontro el producto o el usuario')
+  }
+}else{
+  console.log('El usuario debe de iniciar sesion')
+}
+}
+likeProduct('Guill','TV');
+console.log(products);
+//Componer la funcion like, si el usuario ya dio like mostrar un mensaje que el usuario ya ha dado like 
+//Agregar Ids aleatorios en la funcion de crear cuenta 'SignUp'
+//Crear una funcion para eliminar el like de un usuario de algun producto
+//Explicar el cod de la funcion likeProduct
