@@ -296,6 +296,15 @@ const dateActually = () => {
   const fechaFormateada = `${mes}/${dia}/${ano} ${horas}:${minutos} ${ampm}`;
   return fechaFormateada;
 }
+const idRandom = () => {
+  let simbols = '123456789abcdefghijklmnoprstuvwxz';
+  let idUser = '';
+  for(let i = 0; i < 6; i++){
+    let aletoriId = Math.floor(Math.random() * simbols.length)
+    idUser += simbols[aletoriId]
+  }
+  return idUser
+}
 const signUp = (newUser,userEmail,userPassword) =>{
     // Comprobar si ya existe un usuario con el mismo email
     const userExists = usersTag.find(user => user.email === userEmail);
@@ -303,7 +312,7 @@ const signUp = (newUser,userEmail,userPassword) =>{
       console.log("Ya tengo cuenta");
     } else {
       let dateNewUser = {
-        _id: "f4gbn5",
+        _id: idRandom(),
           username: `${newUser}`,
           email: `${userEmail}`,
           password: `${userPassword}`,
@@ -311,12 +320,11 @@ const signUp = (newUser,userEmail,userPassword) =>{
           isLoggedIn: false,
       }
       usersTag.push(dateNewUser)
-      console.log("Usuario registrado con éxito");
+      console.log(`Usuario registrado con exito, bienvenido(@) ${newUser}`);
     }
 }
 console.log(usersTag)
 signUp('Guill','gg@gmail.com','f3482y')
-
 const signIn = (mail,pass) => {
    // Buscar al usuario por email y contraseña
    const user = usersTag.find(
@@ -365,7 +373,7 @@ const login = findUser.isLoggedIn;
 if(login === true){
   if(findUser && findProduct){
     const idUser = findUser._id;
-    findProduct.likes.push({UserID: idUser, like: 1});
+    findProduct.likes.push(idUser);
     console.log(`El usuario:${nameUser} ha dado Like`)
   }else{
     console.log('No se encontro el producto o el usuario')
@@ -376,7 +384,8 @@ if(login === true){
 }
 likeProduct('Guill','TV');
 console.log(products);
-//Componer la funcion like, si el usuario ya dio like mostrar un mensaje que el usuario ya ha dado like 
-//Agregar Ids aleatorios en la funcion de crear cuenta 'SignUp'
-//Crear una funcion para eliminar el like de un usuario de algun producto
-//Explicar el cod de la funcion likeProduct
+//proceso de creacion de un usuario y ademas calificando un producto
+signUp('Mictia','mictia@gmail.com','12345');
+signIn('mictia@gmail.com','12345');
+rateProduct('Laptop','Mictia',8);
+likeProduct('Mictia','Laptop');
