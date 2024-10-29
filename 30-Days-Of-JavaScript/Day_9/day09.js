@@ -43,4 +43,12 @@ const productPrices = products.map((item) => {
 });
 
 console.log(productPrices);
-//11,-
+//11.-Utilice filter para filtrar los países que contienen land.
+const landCountries = countries.filter((countrie) => countrie.toLocaleLowerCase().includes('land'));
+console.log(landCountries);
+//12.-Utilice filter para filtrar los países que tienen seis caracteres.
+const sixCharacters = countries.filter((countrie) => countrie.length === 6);
+console.log(sixCharacters);
+//13.-Utilice filter para filtrar los países que contengan seis letras o más en el array de países.
+const charactersCountrie = countries.filter((countrie) => countrie.length >= 6);
+console.log(charactersCountrie);
