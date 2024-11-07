@@ -52,3 +52,8 @@ console.log(sixCharacters);
 //13.-Utilice filter para filtrar los países que contengan seis letras o más en el array de países.
 const charactersCountrie = countries.filter((countrie) => countrie.length >= 6);
 console.log(charactersCountrie);
+//14.-Utilice filter para filtrar los países que empiezan por "E";
+const countriesE = countries.filter((countrie) => countrie.startsWith("E"));
+console.log(countriesE);
+//15.-Utilice filter para filtrar sólo los precios con valores.
+//const productPrice = 
