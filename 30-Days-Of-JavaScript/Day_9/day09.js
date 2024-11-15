@@ -53,7 +53,21 @@ console.log(sixCharacters);
 const charactersCountrie = countries.filter((countrie) => countrie.length >= 6);
 console.log(charactersCountrie);
 //14.-Utilice filter para filtrar los países que empiezan por "E";
-const countriesE = countries.filter((countrie) => countrie.startsWith("E"));
+const countriesE = countries.filter((countrie) => countrie.startsWith("D"));
 console.log(countriesE);
 //15.-Utilice filter para filtrar sólo los precios con valores.
-//const productPrice = 
+const priceNumber = products.filter((priced) => typeof priced.price === "number" && !isNaN(priced.price))
+console.log(priceNumber);
+//16.-Declara una función llamada getStringLists que toma un array como parámetro y devuelve un array sólo con elementos string.
+const arrNew = [1,'Andres',4,'Alexa',6];
+//Creamos una funcion flecha que recibe un array como parametro
+const getStringLists = (arr) => {
+//Del array vamos a filtrar cada elemento que cumpla con la condicion, si element es de tipo string devolva true y pasara el filtro
+  return arr.filter((element) => typeof element === 'string');
+};
+//Se imprime la funcion y se le pasa un arrayt de prueba
+console.log(getStringLists(arrNew));
+//17.-Usa reduce para sumar todos los números del array de números.
+const sumArr = numbers.reduce((acumulator, num) => acumulator + num, 0);
+console.log(sumArr);
+//Explica el codifo anterior, intenta explicarlo primero tu ya en caso de tener dificultades usa chatgpt
