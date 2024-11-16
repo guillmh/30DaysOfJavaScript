@@ -1,4 +1,4 @@
-const countries = ["Finland", "Sweden", "Denmark", "Norway", "IceLand"];
+const countries = ["Estonia", "Finland", "Sweden", "Denmark", "Norway", "IceLand"];
 const names = ["Asabeneh", "Mathias", "Elias", "Brook"];
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const products = [
@@ -68,6 +68,38 @@ const getStringLists = (arr) => {
 //Se imprime la funcion y se le pasa un arrayt de prueba
 console.log(getStringLists(arrNew));
 //17.-Usa reduce para sumar todos los números del array de números.
+//declaramos dos parametros, acumulator donde se acumula la suma de los numero y num el elemento de un array, se suman y se indica que inicializara en 0
 const sumArr = numbers.reduce((acumulator, num) => acumulator + num, 0);
 console.log(sumArr);
-//Explica el codifo anterior, intenta explicarlo primero tu ya en caso de tener dificultades usa chatgpt
+//18.-Utiliza reduce para concatenar todos los países y producir esta frase: Estonia, Finland, Sweden, Denmark, Norway, y IceLand son países del norte de Europa
+const phrase = countries.reduce((accumulator, country, index, array) => {
+  if (index === array.length - 1) {
+    return `${accumulator} y ${country}`; // Añade "y" antes del último país
+  }
+  return `${accumulator}, ${country}`; // Concatenar países con comas
+}, ""); // Valor inicial como cadena vacía
+
+const finalPhrase = `${phrase} son países del norte de Europa.`;
+console.log(finalPhrase);
+//19.-Explique la diferencia entre some y every
+// some: Devuelve true si al menos un elemento del array cumple con la condición dada.
+// Es como preguntar: ¿Hay alguno que cumpla con esto?
+// 
+//20.-Utilice some para comprobar si la longitud de algunos nombres es superior a siete en el array de nombres.
+const longNames = names.some((named) => {
+  if(named.length > 7){
+   console.log(`${named} tiene una longuitud mayor a 7`);
+   return true;
+  }
+});
+console.log(longNames);
+//21.-Utilice every para comprobar si todos los países contienen la palabra land.
+const searcLand = countries.every((countrie) => countrie.includes('land'));
+if(searcLand === false){
+  console.log(`${searcLand} por que no todos tienen la palabra 'land'`);
+}else{
+  console.log('True por que todos tienen la plabra "land"')
+};
+//22.-Explique la diferencia entre find y findIndex.
+//find: Devuelve el primer elemento del array que cumple con la condición especificada en la función callback.
+//findIndex: Devuelve el índice del primer elemento que cumple con la condición especificada en la función callback.
