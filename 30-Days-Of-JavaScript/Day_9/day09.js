@@ -103,3 +103,19 @@ if(searcLand === false){
 //22.-Explique la diferencia entre find y findIndex.
 //find: Devuelve el primer elemento del array que cumple con la condición especificada en la función callback.
 //findIndex: Devuelve el índice del primer elemento que cumple con la condición especificada en la función callback.
+//23.-Utilice find para encontrar el primer país que contenga sólo seis letras en el array de países.
+const firstCountrie = countries.find((countrie) => countrie.length === 6);
+console.log(`${firstCountrie} es el primer pais que contiene seis letras en el array`);
+//24.-Utilice findIndex para encontrar la posición del primer país que contenga sólo seis letras en el array de países.
+const positionCountrie = countries.findIndex((countrie) => countrie.length === 6);
+console.log(`${positionCountrie} es la posicion del primer pais que tiene 6 letras`);
+//25.-Utilice findIndex para encontrar la posición de Norway si no existe en el array obtendrá -1.
+const searchNorway = countries.findIndex((countrie) => countrie === 'Norway');
+console.log(searchNorway);
+//26.-Utilice findIndex para encontrar la posición de Russia si no existe en el array obtendrá -1.
+const searchRussia = countries.findIndex((countrie) => countrie === 'Russia');
+console.log(searchRussia);
+//Ejercicios: Nivel 2
+//1.-Encuentre el precio total de los productos encadenando dos o más iteradores de matrices (por ejemplo, arr.map(callback).filter(callback).reduce(callback)).
+const preciTotal =  products.filter((priced) => typeof priced.price === 'number').reduce((acumulator, reduc) => acumulator + reduc.price, 0);
+console.log(preciTotal);
