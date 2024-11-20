@@ -119,3 +119,59 @@ console.log(searchRussia);
 //1.-Encuentre el precio total de los productos encadenando dos o más iteradores de matrices (por ejemplo, arr.map(callback).filter(callback).reduce(callback)).
 const preciTotal =  products.filter((priced) => typeof priced.price === 'number').reduce((acumulator, reduc) => acumulator + reduc.price, 0);
 console.log(preciTotal);
+const data = [
+  { country: "English", count: 91 },
+  { country: "Spanish", count: 85 },
+  { country: "French", count: 70 },
+  { country: "German", count: 50 },
+  { country: "Chinese", count: 120 },
+  { country: "Japanese", count: 65 },
+  { country: "Korean", count: 40 },
+  { country: "Arabic", count: 55 },
+  { country: "Portuguese", count: 60 },
+  { country: "Russian", count: 80 },
+  { country: "Hindi", count: 110 },
+  { country: "Italian", count: 45 },
+  { country: "Turkish", count: 30 },
+  { country: "Dutch", count: 25 },
+  { country: "Swedish", count: 20 }
+];
+//2.-Encuentre la suma del precio de los productos usando sólo reduce(callback)).
+const sumPrice = products.reduce((acumulator, num) => {
+if(typeof num.price === 'number'){
+  return acumulator + num.price;
+}
+return acumulator;
+},0);
+console.log(sumPrice)
+
+
+//Ejercicios: Nivel 3
+//2.-Encuentre las 10 lenguas más habladas:
+const mostSpokenLanguages = (languages, topN) => {
+  return languages.sort((a,b) => a.count - b.count).slice(0, topN);
+};
+console.log(mostSpokenLanguages(data, 6));
+//3.-Utilice el archivo countries_data.js para crear una función que cree los diez países más poblados.
+const populationDay = [
+  { country: "China", population: 1377422166 },
+  { country: "India", population: 1352642280 },
+  { country: "United States", population: 331893745 },
+  { country: "Indonesia", population: 273523621 },
+  { country: "Pakistan", population: 233500636 },
+  { country: "Brazil", population: 216310015 },
+  { country: "Nigeria", population: 223804632 },
+  { country: "Bangladesh", population: 169577608 },
+  { country: "Russia", population: 144373535 },
+  { country: "Mexico", population: 128970579 },
+  { country: "Japan", population: 125584839 },
+  { country: "Ethiopia", population: 126527060 },
+  { country: "Philippines", population: 117337368 },
+  { country: "Egypt", population: 112716406 },
+  { country: "Vietnam", population: 98168850 }
+];
+const mostPopulation = (arr, topN) => {
+  return arr.sort((a,b) => a.population - b.population).slice(0, topN);
+}
+console.log(mostPopulation(populationDay, 7));
+//4.-Intenta desarrollar un programa que calcule la medida de tendencia central de una muestra(mean, median, mode) y medida de la variabilidad(range, variance, standard deviation). Además de esas medidas, encuentre el mínimo, el máximo, el recuento, el porcentaje y la distribución de frecuencias de la muestra. Puede crear un objeto llamado estadísticas y crear todas las funciones que hacen cálculos estadísticos como método para el objeto estadísticas. Comprueba el resultado que aparece a continuación.
