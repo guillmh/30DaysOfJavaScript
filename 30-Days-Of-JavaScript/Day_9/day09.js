@@ -1,4 +1,4 @@
-const countries = ["Estonia", "Finland", "Sweden", "Denmark", "Norway", "IceLand"];
+const countries = ["Estonia", "Finland", "Sweden", "Denmark", "Norway", "IceLand","Eslovakia"];
 const names = ["Asabeneh", "Mathias", "Elias", "Brook"];
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const products = [
@@ -84,7 +84,7 @@ console.log(finalPhrase);
 //19.-Explique la diferencia entre some y every
 // some: Devuelve true si al menos un elemento del array cumple con la condición dada.
 // Es como preguntar: ¿Hay alguno que cumpla con esto?
-// 
+// Every:
 //20.-Utilice some para comprobar si la longitud de algunos nombres es superior a siete en el array de nombres.
 const longNames = names.some((named) => {
   if(named.length > 7){
@@ -144,7 +144,18 @@ if(typeof num.price === 'number'){
 return acumulator;
 },0);
 console.log(sumPrice)
-
+//3.-Declara una función llamada categorizeCountries que retorna un array de países que tienen algún patrón común (encuentras el array de países en este repositorio como countries.js(ej 'land', 'ia', 'island','stan')).
+const categorizeCountries = (countries, patterns) => {
+  return countries.filter(country => {
+    // Lógica para verificar si el país coincide con algún patrón
+    return patterns.some(pattern => 
+      country.toLowerCase().includes(pattern.toLowerCase())
+    );
+  });
+};
+console.log(categorizeCountries(countries,['land','ia']));
+//Volver a estudiar y ver q ue hace 
+//4.-
 
 //Ejercicios: Nivel 3
 //2.-Encuentre las 10 lenguas más habladas:
