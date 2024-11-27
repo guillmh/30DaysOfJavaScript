@@ -1,4 +1,4 @@
-const countries = ["Estonia", "Finland", "Sweden", "Denmark", "Norway", "IceLand","Eslovakia"];
+const countries = ["Estonia", "Finland", "Sweden", "Denmark", "Norway", "IceLand","Eslovakia","India"];
 const names = ["Asabeneh", "Mathias", "Elias", "Brook"];
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const products = [
@@ -143,7 +143,7 @@ if(typeof num.price === 'number'){
 }
 return acumulator;
 },0);
-console.log(sumPrice)
+console.log(sumPrice);
 //3.-Declara una función llamada categorizeCountries que retorna un array de países que tienen algún patrón común (encuentras el array de países en este repositorio como countries.js(ej 'land', 'ia', 'island','stan')).
 const categorizeCountries = (countries, patterns) => {
   return countries.filter(country => {
@@ -154,8 +154,20 @@ const categorizeCountries = (countries, patterns) => {
   });
 };
 console.log(categorizeCountries(countries,['land','ia']));
-//Volver a estudiar y ver q ue hace 
-//4.-
+//4.-Cree una función que retorne un array de objetos, que es la letra y el número de veces que la letra usa para empezar el nombre de un país.
+const countCountryInitials = (countries) => {
+  const counts = countries.reduce((acc, country) => {
+    const firstLetter = country[0].toUpperCase(); // Obtén la primera letra en mayúscula
+    acc[firstLetter] = (acc[firstLetter] || 0) + 1; // Incrementa el contador
+    return acc;
+  }, {});
+
+  // Convierte el objeto en un array de objetos
+  return Object.entries(counts).map(([letter, count]) => ({ letter, count }));
+};
+console.log(countCountryInitials(countries));
+
+//Porfavor estudia el ejericio anteriro apoyate con Ia para entenderlo
 
 //Ejercicios: Nivel 3
 //2.-Encuentre las 10 lenguas más habladas:
