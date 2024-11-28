@@ -1,4 +1,4 @@
-const countries = ["Estonia", "Finland", "Sweden", "Denmark", "Norway", "IceLand","Eslovakia","India"];
+const countries = ["Estonia", "Finland", "Sweden", "Denmark", "Norway", "IceLand","Eslovakia","India","Emiratos"];
 const names = ["Asabeneh", "Mathias", "Elias", "Brook"];
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const products = [
@@ -166,9 +166,35 @@ const countCountryInitials = (countries) => {
   return Object.entries(counts).map(([letter, count]) => ({ letter, count }));
 };
 console.log(countCountryInitials(countries));
-
-//Porfavor estudia el ejericio anteriro apoyate con Ia para entenderlo
-
+//5.-Declara una función getFirstTenCountries y retorna un array de diez países. Utiliza diferente programación funcional para trabajar en el array countries.js.
+const getFirstTenCountries = (countrieArr) =>{
+  return countrieArr.slice(0, 10).map((countrie) => countrie.country.toUpperCase());
+}
+console.log(getFirstTenCountries(data));
+//6.-Declara una función getLastTenCountries que devuelve los últimos diez países del array de países.
+const getLastTenCountries = (arr) => {
+  return arr.slice(arr.length - 10).map(countrie => countrie.country.toUpperCase());
+}
+console.log(getLastTenCountries(data));
+//7.-Encuentre qué letra se utiliza muchas veces como inicial de un nombre de país del array de países (ej. Finland, Fiji, France etc);
+const searchLetter = (arr) => {
+//Extrae la primera letra de cada pais
+const firstLetter = arr.map(letter => letter[0]);
+//Devulve un objeto con su clave valor, la clave es la letra y el valor el numero de veces que se repite 
+const count = firstLetter.reduce((accumulator, letter) => {
+  //contar cuántas veces aparece cada letra
+  accumulator[letter] = (accumulator[letter] || 0) + 1;
+  return accumulator;
+}, {});
+//Convierte el objeto a un array con sub arrays de la letra y el numero de veceses que se repite
+const entries = Object.entries(count);
+//Ordenamos de manera descendente el array por medio de su segundo valor que es el numero que se repite
+const first = [...entries].sort((a, b) => b[1] - a[1]);
+//Retornamos el primer elementon junto con el numero de veces que se repite, al ordenarlos con sort sabemos que el primero es el mayor
+return `${first[0][0]} se repite ${first[0][1]} veces`;
+};
+console.log(searchLetter(countries));
+//Explica cada linea del cod anteriro
 //Ejercicios: Nivel 3
 //2.-Encuentre las 10 lenguas más habladas:
 const mostSpokenLanguages = (languages, topN) => {
