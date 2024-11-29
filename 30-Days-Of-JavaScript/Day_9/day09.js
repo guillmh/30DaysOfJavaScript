@@ -194,7 +194,6 @@ const first = [...entries].sort((a, b) => b[1] - a[1]);
 return `${first[0][0]} se repite ${first[0][1]} veces`;
 };
 console.log(searchLetter(countries));
-//Explica cada linea del cod anteriro
 //Ejercicios: Nivel 3
 //2.-Encuentre las 10 lenguas más habladas:
 const mostSpokenLanguages = (languages, topN) => {
@@ -224,3 +223,79 @@ const mostPopulation = (arr, topN) => {
 }
 console.log(mostPopulation(populationDay, 7));
 //4.-Intenta desarrollar un programa que calcule la medida de tendencia central de una muestra(mean, median, mode) y medida de la variabilidad(range, variance, standard deviation). Además de esas medidas, encuentre el mínimo, el máximo, el recuento, el porcentaje y la distribución de frecuencias de la muestra. Puede crear un objeto llamado estadísticas y crear todas las funciones que hacen cálculos estadísticos como método para el objeto estadísticas. Comprueba el resultado que aparece a continuación.
+const dataJs = [1, 2, 2, 3, 4, 4, 4, 5, 5, 6, 7];
+
+const statistics = {
+//Metodo para medir la media
+mean: function(arr){
+const sum = arr.reduce((acc, num) => acc + num,0);
+return sum / arr.length;
+},
+//Encuentra el numero que esta en la media
+median: function(arr){
+arr.sort((a, b) => a - b);
+const middle = Math.floor(arr.length / 2);
+if (arr.length % 2 === 0) {
+  return (arr[middle - 1] + arr[middle]) / 2;
+}else{
+  return arr[middle];
+}
+},
+mode: function(arr) {
+  const frequency = {};
+  arr.forEach(val => {
+    frequency[val] = (frequency[val] || 0) + 1;
+  });
+  const maxFreq = Math.max(...Object.values(frequency));
+  return Object.keys(frequency).filter(key => frequency[key] === maxFreq);
+},
+range: function(arr) {
+  const min = Math.min(...arr);
+  const max = Math.max(...arr);
+  return max - min;
+},
+variance: function(arr) {
+  const meanValue = this.mean(arr);
+  const squaredDiffs = arr.map(val => Math.pow(val - meanValue, 2));
+  return this.mean(squaredDiffs);
+},
+standardDeviation: function(arr) {
+  return Math.sqrt(this.variance(arr));
+},
+min: function(arr) {
+  return Math.min(...arr);
+},
+max: function(arr) {
+  return Math.max(...arr);
+},
+count: function(arr) {
+  return arr.length;
+},
+frequencyDistribution: function(arr) {
+  const frequency = {};
+  arr.forEach(val => {
+    frequency[val] = (frequency[val] || 0) + 1;
+  });
+  return frequency;
+},
+percentage: function(arr) {
+  const totalCount = this.count(arr);
+  const frequency = this.frequencyDistribution(arr);
+  const percentages = {};
+  for (let key in frequency) {
+    percentages[key] = (frequency[key] / totalCount) * 100;
+  }
+  return percentages;
+}
+}
+console.log(statistics.mean(dataJs));
+console.log(statistics.median(dataJs));
+console.log(statistics.mode(dataJs));
+console.log(statistics.range(dataJs));
+console.log(statistics.variance(dataJs));
+console.log(statistics.standardDeviation(dataJs));
+console.log(statistics.min(dataJs));
+console.log(statistics.max(dataJs));
+console.log(statistics.count(dataJs));
+console.log(statistics.frequencyDistribution(dataJs));
+console.log(statistics.percentage(dataJs));
