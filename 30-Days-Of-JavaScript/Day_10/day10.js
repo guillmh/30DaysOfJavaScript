@@ -59,3 +59,37 @@ for(countrie of countrieMap){
 for(const [countrie, city] of countrieMap){
     console.log(countrie, city)
 }
+//Ejercicios:Nivel 1
+
+//1.-crear un set vacío
+const newSet = new Set();
+console.log(newSet);
+//2.-Crear un set que contenga de 0 a 10 utilizando el bucle
+const numbers = [0,1,2,3,4,5,6,7,8,9];
+for(const numOne of numbers){
+    newSet.add(numOne)
+};
+console.log(newSet);
+//3.-Eliminar un elemento de set
+newSet.delete(0);
+console.log(newSet);
+//4.-Limpia set
+newSet.clear();
+console.log(newSet);
+//5.-Crear un set de 5 elementos string a partir de un array
+const mechanicalKeyboards = [
+    "Keychron K6",
+    "Logitech G Pro X",
+    "Corsair K95 RGB Platinum",
+    "Razer BlackWidow V3",
+    "SteelSeries Apex Pro"
+  ];
+const keyboardSet = new Set(mechanicalKeyboards);
+console.log(keyboardSet);
+//6.-Crear un map de países y el número de caracteres de un país
+const countriesVersion = ["India", "Estonia", "Finland", "Japan", "Brazil"];
+const newCountries = new Map();
+countriesVersion.forEach((country) => {
+ newCountries.set(country, country.length);
+});
+console.log(newCountries);
