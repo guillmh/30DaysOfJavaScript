@@ -93,3 +93,36 @@ countriesVersion.forEach((country) => {
  newCountries.set(country, country.length);
 });
 console.log(newCountries);
+//Ejercicios:Nivel 2
+//1.-Encontrar a unión b
+let a = [1, 2, 3, 4, 5];
+let b = [3, 4, 5, 6];
+let c = [...a, ...b];
+const union = new Set(c);
+console.log(union);
+//2.-Encontrar a intersección b
+let A = new Set(a);
+let B = new Set(b);
+let d = a.filter((num) => B.has(num));
+let C = new Set(d);
+console.log(C);
+//3.-Encontrar a con b
+//Ejercicios:Nivel 3
+const lenguaje = [
+    ["Español", 500000000],
+    ["Inglés", 400000000],
+    ["Chino", 1000000000],
+    ["Francés", 300000000],
+    ["Alemán", 150000000],
+    ["Español", 500000000],  // Duplicado
+    ["Inglés", 400000000],   // Duplicado
+    ["Italiano", 85000000],
+    ["Chino", 1000000000],   // Duplicado
+    ["Francés", 300000000]   // Duplicado
+  ];  
+  //1.-Cuántos idiomas hay en el archivo de objetos de países.
+const setAdd = new Set()
+const newFilter = lenguaje.map((lenguaje) => lenguaje[0]);
+const newLeguaje =  new Set(newFilter);
+console.log(newLeguaje);
+//Explica el cod 
