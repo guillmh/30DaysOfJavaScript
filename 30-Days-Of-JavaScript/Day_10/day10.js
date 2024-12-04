@@ -125,4 +125,10 @@ const setAdd = new Set()
 const newFilter = lenguaje.map((lenguaje) => lenguaje[0]);
 const newLeguaje =  new Set(newFilter);
 console.log(newLeguaje);
-//Explica el cod 
+//2.- Utiliza los datos de los países para encontrar las 10 lenguas más habladas:
+const moreLenguaje = (arr, num) =>{
+ const orderLenguaje = arr.sort((a, b) => b[1] - a[1]);
+  return orderLenguaje.slice(0, num);
+}
+console.log(moreLenguaje(lenguaje, 4));
+//explica el codigo
