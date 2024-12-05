@@ -131,4 +131,3 @@ const moreLenguaje = (arr, num) =>{
   return orderLenguaje.slice(0, num);
 }
 console.log(moreLenguaje(lenguaje, 4));
-//explica el codigo
