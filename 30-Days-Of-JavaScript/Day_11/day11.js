@@ -50,9 +50,19 @@ const users = [
     age: 20,
   },
 ];
+//Ejericicos nivel 1
 //1.-Desestructurar y asignar los elementos del array de constantes para e, pi, gravedad, humanBodyTemp, waterBoilingTemp.
 const  [e, pi, gravity, humanBodyTemp, waterBoilingTemp] = constants
 //2.-Desestructurar y asignar los elementos del array de países a fin, est, sw, den, nor
 const [fin, est, sw, den, nor] = countries
 //3.-Desestructurar el objeto rectángulo por sus propiedades o keys.
 const {width, height, area, perimeter} = rectangle
+//Ejercicios nivel 2
+//1.-Iterar a través del array de usuarios y obtener todas las keys del objeto utilizando la desestructuración
+for({name, scores, skills, age} of users){
+ console.log(name, scores, skills, age)
+};
+//2.-Encuentra las personas que tienen menos de dos habilidades
+const usersWithFewerSkills = users.filter(({ skills }) => skills.length < 2);
+console.log(usersWithFewerSkills);
+//3.-Ejercicios nivel 3
