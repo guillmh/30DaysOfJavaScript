@@ -57,3 +57,28 @@ const wordMap = new Map();
   return top10Words;
 }
 console.log(tenMostFrequentWords(paragraph, 10));
+//Ejercicios: Nivel 3
+//1.-Escribe una función que limpie el texto. Limpia el siguiente texto. Después de la limpieza, cuente tres palabras más frecuentes en la cadena.
+let sentence = `%I $am@% a %tea@cher%, &and& I lo%#ve %tea@ching%;. There $is nothing; &as& mo@re rewarding as educa@ting &and& @emp%o@wering peo@ple. ;I found tea@ching m%o@re interesting tha@n any other %jo@bs. %Do@es thi%s mo@tivate yo@u to be a tea@cher!?`;
+ const cleanText = () => {
+  let symbol = /[#@!?$;%&]/g;
+  let cleansentense = sentence.replace(symbol, '');
+  const words = cleansentense.match(/[a-zA-Z]+/g);
+  const groups = new Map();
+  words.forEach(wor => {
+       if (groups.has(wor)){
+        groups.set(wor, groups.get(wor) + 1)
+       } else {
+        groups.set(wor, 1);
+       }
+  });
+
+  const sortWor = Array.from(groups.entries()).sort((a ,b) => b[1] - a[1]);
+  const wordSingle = sortWor.filter((sing) => sing[0].length >= 2);
+  const top3Words = wordSingle.slice(0, 3).map(entry => {
+    return { word: entry[0], frequency: entry[1] };  // Crear un objeto con la palabra y su frecuencia
+  });
+
+  return top3Words;
+ }
+ console.log(cleanText());
