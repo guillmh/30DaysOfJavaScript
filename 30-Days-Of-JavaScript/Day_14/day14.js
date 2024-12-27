@@ -25,3 +25,15 @@ function divideNumbers(a, b) {
   console.log(divideNumbers(10, 2)); // Resultado: 5
   console.log(divideNumbers(10, 0)); // Error: La división por cero no está permitida.
 //3.-Acceso a propiedad inexistente: Intenta acceder a una propiedad de un objeto que no existe. Usa try, catch y finally para manejar el error, y asegúrate de que el bloque finally se ejecute independientemente del error.
+const cars = {
+  marca: 'BMW',
+  kilometraje: 1400,
+  color: 'rojo'
+}
+try{
+const fullCar = `${marca}${fecha}${kilometraje}${color}`
+}catch(err){
+console.log(err)
+}finally{
+ console.log('Mi carro es un MBW color Rojo')
+}
