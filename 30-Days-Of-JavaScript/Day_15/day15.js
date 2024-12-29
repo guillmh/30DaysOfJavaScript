@@ -48,10 +48,27 @@ class statistics {
     }
 media(){
    const sumTotal = this.arr.reduce((acc, curr) => acc + curr, 0);
-   const average = sumTotal / this.length;
+   const average = sumTotal / this.arr.length;
    return `La media es ${average}`;
+}
+mediana(){
+    const orderArr = this.arr.sort((a, b) => a - b);
+    const mid = Math.floor(orderArr.length / 2);
+   return orderArr[mid];
+}
+moda(){
+    const frequency = {};
+    this.arr.forEach(num => {
+        frequency[num] = (frequency[num] || 0) + 1;
+      });
+      const maxFrequency = Math.max(...Object.values(frequency));
+      const modes = Object.keys(frequency).filter(key => frequency[key] === maxFrequency);
+      return modes.length === 1 ? `La moda es: ${modes[0]}` : `Las modas son: ${modes.join(', ')}`;
 }
 }
 const med = new statistics(ages);
+
+
 console.log(med.media());
-// verifica por que da NAn
+console.log(med.mediana());
+console.log(med.moda());
