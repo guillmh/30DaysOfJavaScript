@@ -119,3 +119,27 @@ const isStudent = JSON.stringify(student, undefined, 4);
 console.log(isStudent);
 //Ejercicios Nivel 2
 //1.-Stringify el objeto estudiantes con sólo las propiedades firstName, lastName y skills
+const studenObjet = JSON.stringify(student,["firstName","lastName","skills"],4);
+console.log(studenObjet);
+//Ejercicios Nivel 3
+//1.- Parsear el txt JSON a objeto.
+const newTxt = JSON.parse(txt, undefined, 4);
+console.log(newTxt);
+//2.-Encuentra el usuario que tiene muchas habilidades de la variable almacenada en txt.
+//convertimos el objeto en un array clave valor
+const dataArr = Object.entries(newTxt);
+//Creamos un objeto donde se almacenara el usuario con mas habilidades
+let mostSkilledUser = { name: null, skills: [] };
+//Funcion para buscar
+const searchSkills = () => {
+    //Un bucle para recorrer el nombre, y los valores 
+    for (const [name, details] of dataArr){
+        //condicion, para comparar las skills actual del bucle con las del usuario de mostSkillUser, en caso de ser mayor actualiza los datos 
+       if(details.skills && details.skills.length > mostSkilledUser.skills.length){
+        mostSkilledUser = {name, skills: details.skills};
+       }
+    }
+    //se retorna el objeto actualizado
+    return mostSkilledUser;
+};
+console.log(searchSkills());
