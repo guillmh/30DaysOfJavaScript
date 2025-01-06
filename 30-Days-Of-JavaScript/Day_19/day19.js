@@ -27,15 +27,62 @@ function datas(){
         return mul;
     }
     return {
-        one: sum(),
-        two: rest(),
-        thre: multi()
+        one: sum,
+        two: rest,
+        thre: multi
     };
 }
 const innerFunctions = datas();
-console.log(innerFunctions.one);
-console.log(innerFunctions.two);
-console.log(innerFunctions.thre);
+console.log(innerFunctions.one());
+console.log(innerFunctions.two());
+console.log(innerFunctions.thre());
+//Ejercicios: Nivel 3
+//1.-Crear una función de salida de personAccount. Tiene variables internas de nombre, apellido, ingresos y gastos. Tiene las funciones internas totalIncome, totalExpense, accountInfo,addIncome, addExpense y accountBalance. Los ingresos son un conjunto de ingresos y su descripción y los gastos son también un conjunto de gastos con su descripción.
+function personAccount() {
+    let name = 'Alexa';
+    let lastName = 'Mendoza';
+    let income = [{ description: 'Salario', amount: 20000 }];
+    let expense = [{ description: 'Renta', amount: 3000 }];
 
-//entender mejor closure apoyate de chatgpt y entender el la difrencia de los dos codigod anteriores
+    function totalIncome() {
+        return income.reduce((total, item) => total + item.amount, 0);
+    }
+
+    function totalExpense() {
+        return expense.reduce((total, item) => total + item.amount, 0);
+    }
+
+    function accountInfo() {
+        return `Nombre: ${name} ${lastName}, Total Ingresos: ${totalIncome()}, Total Gastos: ${totalExpense()}`;
+    }
+
+    function addIncome(description, amount) {
+        income.push({ description, amount });
+        return `Ingreso agregado: ${description} por ${amount}`;
+    }
+
+    function addExpense(description, amount) {
+        expense.push({ description, amount });
+        return `Gasto agregado: ${description} por ${amount}`;
+    }
+
+    function accountBalance() {
+        return `Saldo: ${totalIncome() - totalExpense()}`;
+    }
+
+    return {
+        addIncome,
+        addExpense,
+        accountInfo,
+        accountBalance,
+    };
+}
+
+const userTotal = personAccount();
+console.log(userTotal.addIncome('Freelance', 5000)); // Agregar ingreso
+console.log(userTotal.addExpense('Supermercado', 1000)); // Agregar gasto
+console.log(userTotal.accountInfo()); // Mostrar info de la cuenta
+console.log(userTotal.accountBalance()); // Mostrar saldo
+
+
 
