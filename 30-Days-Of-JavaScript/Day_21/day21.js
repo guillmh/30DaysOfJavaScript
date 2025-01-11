@@ -28,4 +28,22 @@ for(let i = 0; i < allParagraphs.length; i++){
     allParagraphs[i].id = `p${i}`;
     console.log(allParagraphs[i]);
 }
+//Ejercicios: Nivel 2
+//1.-Cambiar el estilo de cada párrafo mediante JavaScript (ej, color, fondo, borde, tamaño de la fuente, familia de la fuente)
+for(let i = 0; i < allParagraphs.length; i++){
+   const paragraph = allParagraphs[i].style;
+   paragraph.fontSize = '25px';
+   paragraph.fontFamily = 'Arial';
+}
+//2.-Seleccione todos los párrafos y haga un bucle a través de cada uno de los elementos y dé al primer y tercer párrafo un color verde, y al segundo y cuarto párrafo un color rojo.
+for(let i = 0; i < allParagraphs.length; i++){
+    if(i === 0 || i === 2){
+        allParagraphs[i].style.color = 'green';
+    }else{
+        allParagraphs[i].style.color = 'red';
+    }
+};
+//3.-Establecer textContent, id y class a cada párrafo
 
+//Ejercicios: Nivel 3
+//DOM: Mini proyecto 1
