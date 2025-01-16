@@ -1,0 +1,36 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.boxDad{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 30%;
+    height: 60%;
+}
+.description{
+    display: flex;
+    justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     margin-top: 100px;
+}
+.title{
+    margin-top: 0%;
+    height: 0;
+}
+.subTitle{
+    height: 0;
+    font-size: 17px;
+    text-decoration: underline;
+}
+.author{
+    font-size: 13px;
+    height: 0;
+    margin: 17px;
+    text-decoration: underline;
+}
