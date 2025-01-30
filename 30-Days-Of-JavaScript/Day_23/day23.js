@@ -20,8 +20,11 @@ const generarNumeros = () => {
     boxCountries.innerHTML = ''; // Limpia el contenedor
 
     for (let i = 0; i < cantidad; i++) {
+
         const numeroDiv = document.createElement('div');
+
         numeroDiv.textContent = i;
+        
         numeroDiv.classList.add('numero');
         
         // Determina si es primo
@@ -49,6 +52,7 @@ const generarNumeros = () => {
         boxCountries.appendChild(numeroDiv);
     }
 }
+
 
 generateNumbers.addEventListener('click', generarNumeros);
 
