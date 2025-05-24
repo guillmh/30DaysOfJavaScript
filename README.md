@@ -20,4 +20,4 @@ The exercises cover the basics of JavaScript as well as concepts for managing th
 
 ## 📁 Repository structure
 
-Explica cómo están organizadas las carpetas y archivos principales.
+- [Day 01](./30-Days-Of-JavaScript/Day_1/)
