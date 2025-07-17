@@ -20,9 +20,9 @@ The exercises cover the basics of JavaScript as well as concepts for managing th
 
 ## 📁 Repository structure
 
-- [Day 01](./30-Days-Of-JavaScript/Day_1/)
-- [Day 02](./30-Days-Of-JavaScript/Day_2/)
-- [Day 03](./30-Days-Of-JavaScript/Day_3/)
+- [Day 01-Introduccion](./30-Days-Of-JavaScript/Day_1/)
+- [Day 02-Tipos de datos](./30-Days-Of-JavaScript/Day_2/)
+- [Day 03-Boleanos, operadores, fecha](./30-Days-Of-JavaScript/Day_3/)
 - [Day 04](./30-Days-Of-JavaScript/Day_4/)
 - [Day 05](./30-Days-Of-JavaScript/Day_5/)
 - [Day 06](./30-Days-Of-JavaScript/Day_6/)
