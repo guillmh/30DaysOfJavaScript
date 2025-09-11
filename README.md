@@ -27,7 +27,7 @@ The exercises cover the basics of JavaScript as well as concepts for managing th
 - [Day 05'conditon](./30-Days-Of-JavaScript/Day_5/)
 - [Day 06-if](./30-Days-Of-JavaScript/Day_6/)
 - [Day 07-df](./30-Days-Of-JavaScript/Day_7/)
-- [Day 08-](./30-Days-Of-JavaScript/Day_8/)
+- [Day 08-ds](./30-Days-Of-JavaScript/Day_8/)
 - [Day 09-](./30-Days-Of-JavaScript/Day_9/)
 - [Day 10-](./30-Days-Of-JavaScript/Day_10/)
 - [Day 11-](./30-Days-Of-JavaScript/Day_11/)
