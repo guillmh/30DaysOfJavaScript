@@ -36,7 +36,7 @@ The exercises cover the basics of JavaScript as well as concepts for managing th
 - [Day 14-](./30-Days-Of-JavaScript/Day_14/)
 - [Day 15-](./30-Days-Of-JavaScript/Day_15/)
 - [Day 16](./30-Days-Of-JavaScript/Day_16/)
-- [Day 17](./30-Days-Of-JavaScript/Day_17/)
+- [Day 17-](./30-Days-Of-JavaScript/Day_17/)
 - [Day 18](./30-Days-Of-JavaScript/Day_18/)
 - [Day 19](./30-Days-Of-JavaScript/Day_19/)
 - [Day 20](./30-Days-Of-JavaScript/Day_20/)
